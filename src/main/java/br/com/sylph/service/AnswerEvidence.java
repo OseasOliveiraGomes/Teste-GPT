@@ -105,15 +105,17 @@ public final class AnswerEvidence {
             // actor/action/modality checks or the model's semantic judgment.
             if (literalUnit) witnesses.addAll(AttributionEvidence.contextualWitnesses(unit.evidence().getFirst(),factualText));
             List<String> attributionIssues = AttributionEvidence.unsupported(factualText, witnesses);
+            List<String> groundingIssues = ClaimGrounding.unsupported(factualText, unit.evidence());
             if (debug && !attributionIssues.isEmpty()) System.out.println(
                 "[RAG] atribuicao_rejeitada unidade=" + unit.id() + " motivo=" + String.join("; ",attributionIssues));
-            if (supported && comparisonGrounded && attributionIssues.isEmpty() &&
+            if (supported && comparisonGrounded && attributionIssues.isEmpty() && groundingIssues.isEmpty() &&
                     (literalUnit || (quotesValid && covered.containsAll(unit.evidence()))))
                 approved.add(unit.text());
             else issues.add("Unidade " + unit.id() + ": " + c.path("reason").asText("Sem apoio verificavel") +
                 (supported && !quotesValid ? " (citacao literal da auditoria invalida: " + invalidQuotes + "; confira a pagina de cada afirmacao)" : "") +
                 (!comparisonGrounded ? " (comparacao sem evidencia para: " + missingAnchors + ")" : "") +
-                (!attributionIssues.isEmpty() ? " (" + String.join("; ", attributionIssues) + ")" : ""));
+                (!attributionIssues.isEmpty() ? " (" + String.join("; ", attributionIssues) + ")" : "") +
+                (!groundingIssues.isEmpty() ? " (" + String.join("; ", groundingIssues) + ")" : ""));
         }
         for (JsonNode item : verdict.path("missing")) {
             if (!item.isTextual()) return new Audit(List.of(), List.of("Campo missing invalido"), List.of(), false);

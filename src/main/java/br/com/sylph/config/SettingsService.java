@@ -27,6 +27,17 @@ public class SettingsService {
             throw new IllegalArgumentException("Use 'recursivo' ou 'semantico'.");
         ProjectConfig cfg = load();
         cfg.chunking_ativo = mode;
+        save(cfg);
+    }
+
+    public synchronized void changeReranking(boolean active) throws IOException {
+        ProjectConfig cfg = load();
+        cfg.reranking_ativo = active;
+        save(cfg);
+    }
+
+    public synchronized void save(ProjectConfig cfg) throws IOException {
+        cfg.validar();
         Path temp = path.resolveSibling("config.json.tmp");
         mapper.writerWithDefaultPrettyPrinter().writeValue(temp.toFile(), cfg);
         try { Files.move(temp, path, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE); }

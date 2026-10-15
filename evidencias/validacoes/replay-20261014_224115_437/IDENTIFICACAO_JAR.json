@@ -1,0 +1,12 @@
+{
+    "jar":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\target\\sylph-unopar-java-1.0.0.jar",
+    "sha256":  "2E82D3773CDD2840BAC574CCFA4AD94FB85AF005EAE7E8F26C0644E0200B1EB4",
+    "replay_passed":  5,
+    "proof":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\evidencias\\validacoes\\replay-20261014_224115_437\\PROVA_REPLAY_JAR.json",
+    "production_class_locations":  {
+                                       "OllamaClient":  "jar:nested:/C:/Users/cs081/OneDrive/Desktop/Tutor%20IA/target/sylph-unopar-java-1.0.0.jar/!BOOT-INF/classes/!/",
+                                       "RagService":  "jar:nested:/C:/Users/cs081/OneDrive/Desktop/Tutor%20IA/target/sylph-unopar-java-1.0.0.jar/!BOOT-INF/classes/!/",
+                                       "AnswerEvidence":  "jar:nested:/C:/Users/cs081/OneDrive/Desktop/Tutor%20IA/target/sylph-unopar-java-1.0.0.jar/!BOOT-INF/classes/!/",
+                                       "AttributionEvidence":  "jar:nested:/C:/Users/cs081/OneDrive/Desktop/Tutor%20IA/target/sylph-unopar-java-1.0.0.jar/!BOOT-INF/classes/!/"
+                                   }
+}

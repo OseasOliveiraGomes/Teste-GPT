@@ -10,7 +10,7 @@ class PdfMetadataTest {
         Map<Integer, String> text = new HashMap<>();
         pages.forEach(p -> text.put(p.number(), normalize(p.text())));
         for (String method : List.of("recursivo", "semantico")) {
-            var chunks = new CsvKnowledgeStore(new ObjectMapper()).read(method);
+            var chunks = new CsvKnowledgeStore(new ObjectMapper()).readBaseline(method);
             for (var c : chunks) {
                 assertTrue(text.containsKey(c.pagina()), c.id());
                 assertTrue(text.get(c.pagina()).contains(normalize(c.texto())), method + ": " + c.id());
@@ -22,7 +22,7 @@ class PdfMetadataTest {
     @Test void realBasesExpandFromSeventeenToBothDefinitions() throws Exception {
         var store = new CsvKnowledgeStore(new ObjectMapper());
         for (String method : List.of("recursivo", "semantico")) {
-            var chunks = store.read(method);
+            var chunks = store.readBaseline(method);
             var ranked = chunks.stream().map(c -> new br.com.sylph.model.RankedChunk(c, 0, 0, 0)).toList();
             var seed = ranked.stream().filter(c -> c.chunk().pagina() == 17).findFirst().orElseThrow();
             var expanded = HybridRetriever.expandNearby(List.of(seed), ranked);

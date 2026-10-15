@@ -1,0 +1,169 @@
+﻿{
+    "ramBytes":  25459286016,
+    "manifestSha256":  "DE4FAD85B2A0D392EDE6C1C99C8EB8A31B95A746EE8E22FC5FB99D236AFCC323",
+    "configSha256":  "20F62851CAD6285D3AA6A4A5288C55D507ECFB3CB4837F761CC12812695BE5F7",
+    "cpu":  {
+                "Name":  "13th Gen Intel(R) Core(TM) i5-13420H",
+                "NumberOfCores":  8,
+                "NumberOfLogicalProcessors":  12
+            },
+    "ollamaVersion":  {
+                          "version":  "0.40.4"
+                      },
+    "models":  {
+                   "models":  [
+                                  {
+                                      "name":  "nomic-embed-text:latest",
+                                      "model":  "nomic-embed-text:latest",
+                                      "modified_at":  "2026-10-13T18:57:38.0634804-03:00",
+                                      "size":  274302450,
+                                      "digest":  "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+                                      "details":  {
+                                                      "parent_model":  "",
+                                                      "format":  "gguf",
+                                                      "family":  "nomic-bert",
+                                                      "families":  [
+                                                                       "nomic-bert"
+                                                                   ],
+                                                      "parameter_size":  "137M",
+                                                      "quantization_level":  "F16",
+                                                      "context_length":  2048,
+                                                      "embedding_length":  768,
+                                                      "runner":  "ggml"
+                                                  },
+                                      "capabilities":  [
+                                                           "embedding"
+                                                       ]
+                                  },
+                                  {
+                                      "name":  "sylph-unopar:latest",
+                                      "model":  "sylph-unopar:latest",
+                                      "modified_at":  "2026-10-13T18:41:35.2890643-03:00",
+                                      "size":  5225391937,
+                                      "digest":  "888142521135fa2a3b7a1a26246bf0138fdf3449884ae46a32c3ec3bdd3a4091",
+                                      "details":  {
+                                                      "parent_model":  "qwen3:8b",
+                                                      "format":  "gguf",
+                                                      "family":  "qwen3",
+                                                      "families":  [
+                                                                       "qwen3"
+                                                                   ],
+                                                      "parameter_size":  "8.2B",
+                                                      "quantization_level":  "Q4_K_M",
+                                                      "context_length":  40960,
+                                                      "embedding_length":  4096,
+                                                      "runner":  "llamacpp"
+                                                  },
+                                      "capabilities":  [
+                                                           "completion",
+                                                           "tools",
+                                                           "thinking"
+                                                       ]
+                                  },
+                                  {
+                                      "name":  "qwen3:8b",
+                                      "model":  "qwen3:8b",
+                                      "modified_at":  "2026-10-13T18:28:57.1589865-03:00",
+                                      "size":  5225388164,
+                                      "digest":  "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+                                      "details":  {
+                                                      "parent_model":  "",
+                                                      "format":  "gguf",
+                                                      "family":  "qwen3",
+                                                      "families":  [
+                                                                       "qwen3"
+                                                                   ],
+                                                      "parameter_size":  "8.2B",
+                                                      "quantization_level":  "Q4_K_M",
+                                                      "context_length":  40960,
+                                                      "embedding_length":  4096,
+                                                      "runner":  "ggml"
+                                                  },
+                                      "capabilities":  [
+                                                           "completion",
+                                                           "tools",
+                                                           "thinking"
+                                                       ]
+                                  },
+                                  {
+                                      "name":  "sylph:latest",
+                                      "model":  "sylph:latest",
+                                      "modified_at":  "2026-10-05T16:14:03.6063521-03:00",
+                                      "size":  4683092389,
+                                      "digest":  "d80e4dbada4ef1afeed4936e277b9e553143338b095461aa71dc6d69d78bb472",
+                                      "details":  {
+                                                      "parent_model":  "qwen2.5:7b",
+                                                      "format":  "gguf",
+                                                      "family":  "qwen2",
+                                                      "families":  [
+                                                                       "qwen2"
+                                                                   ],
+                                                      "parameter_size":  "7.6B",
+                                                      "quantization_level":  "Q4_K_M",
+                                                      "context_length":  32768,
+                                                      "embedding_length":  3584,
+                                                      "runner":  "ggml"
+                                                  },
+                                      "capabilities":  [
+                                                           "completion",
+                                                           "tools"
+                                                       ]
+                                  },
+                                  {
+                                      "name":  "qwen2.5:latest",
+                                      "model":  "qwen2.5:latest",
+                                      "modified_at":  "2026-09-30T10:50:17.5017937-03:00",
+                                      "size":  4683087332,
+                                      "digest":  "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+                                      "details":  {
+                                                      "parent_model":  "",
+                                                      "format":  "gguf",
+                                                      "family":  "qwen2",
+                                                      "families":  [
+                                                                       "qwen2"
+                                                                   ],
+                                                      "parameter_size":  "7.6B",
+                                                      "quantization_level":  "Q4_K_M",
+                                                      "context_length":  32768,
+                                                      "embedding_length":  3584,
+                                                      "runner":  "ggml"
+                                                  },
+                                      "capabilities":  [
+                                                           "completion",
+                                                           "tools"
+                                                       ]
+                                  },
+                                  {
+                                      "name":  "qwen2.5:7b",
+                                      "model":  "qwen2.5:7b",
+                                      "modified_at":  "2026-09-30T10:49:23.6543605-03:00",
+                                      "size":  4683087332,
+                                      "digest":  "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+                                      "details":  {
+                                                      "parent_model":  "",
+                                                      "format":  "gguf",
+                                                      "family":  "qwen2",
+                                                      "families":  [
+                                                                       "qwen2"
+                                                                   ],
+                                                      "parameter_size":  "7.6B",
+                                                      "quantization_level":  "Q4_K_M",
+                                                      "context_length":  32768,
+                                                      "embedding_length":  3584,
+                                                      "runner":  "ggml"
+                                                  },
+                                      "capabilities":  [
+                                                           "completion",
+                                                           "tools"
+                                                       ]
+                                  }
+                              ]
+               },
+    "modelsAtStart":  {
+                          "models":  [
+
+                                     ]
+                      },
+    "gpu":  "NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB, 617.14",
+    "observedAt":  "2026-10-14T23:56:05.8341374-03:00"
+}

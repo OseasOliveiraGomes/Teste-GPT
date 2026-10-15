@@ -1,0 +1,24 @@
+﻿{
+    "artifact":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\target\\sylph-unopar-java-1.0.0.jar",
+    "generatedAt":  "2026-10-15T04:26:55.6262504-03:00",
+    "bytes":  17596781,
+    "sha256":  "E34D7F5EEBBD961DFB3DE7EE7E52DCB923262A3B5D4C6B146E3F272E852B0138",
+    "maven":  "mvn -Dmaven.repo.local=.m2 -o -B package",
+    "tests":  342,
+    "passed":  338,
+    "failures":  0,
+    "errors":  0,
+    "skipped":  4,
+    "menuExitCode":  0,
+    "launcherValidationExitCode":  0,
+    "realValidation":  "Core aprovado por revisão técnica: prazo e supervisores; controle de informação ausente sem quantia inventada. Limitações registradas no relatório.",
+    "realEvidence":  [
+                         "release-accepted-core.json",
+                         "release-accepted-absent-semantico.json"
+                     ],
+    "report":  "RELATORIO-FINAL.md",
+    "thinking":  true,
+    "topK":  8,
+    "configSha256":  "20F62851CAD6285D3AA6A4A5288C55D507ECFB3CB4837F761CC12812695BE5F7",
+    "indexManifestSha256":  "DE4FAD85B2A0D392EDE6C1C99C8EB8A31B95A746EE8E22FC5FB99D236AFCC323"
+}

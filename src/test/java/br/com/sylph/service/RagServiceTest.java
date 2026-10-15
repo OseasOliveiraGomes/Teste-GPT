@@ -30,8 +30,8 @@ class RagServiceTest {
         var context = ArgumentCaptor.forClass(String.class);
         verify(ollama).chat(eq(cfg), eq("Cadastro e assinatura?"), context.capture());
         String text = context.getValue();
-        assertTrue(text.contains("Ordem de recuperação: 1\nIdentificador do trecho: R-7-12\nDocumento: Manual\nPágina: 7\nConteúdo: Assinatura"));
-        assertTrue(text.contains("Ordem de recuperação: 2\nIdentificador do trecho: R-6-11\nDocumento: Manual\nPágina: 6\nConteúdo: Cadastro"));
+        assertTrue(text.contains("Documento: Manual\nTrechos (ordem de recuperação): R-7-12 (1)\nPágina: 7\nConteúdo: Assinatura"));
+        assertTrue(text.contains("Documento: Manual\nTrechos (ordem de recuperação): R-6-11 (2)\nPágina: 6\nConteúdo: Cadastro"));
         assertTrue(text.indexOf("R-7-12") < text.indexOf("R-6-11"));
         assertEquals(answer, result.resposta());
         assertEquals(2, result.fontes().size());

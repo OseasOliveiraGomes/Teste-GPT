@@ -1,11 +1,42 @@
+# Build e ferramentas locais
 /target*/
+/.m2/
 /.idea/
 /.settings/
 /.classpath
 /.project
 *.iml
-/dados/base_*.csv
-/testes/resultados*.csv
 
-.m2/
+# Temporários, diagnósticos e backups gerados (arquivos já rastreados são preservados)
 /tmp/
+*.tmp
+*.log
+*.bak
+/backups/
+/BACKUP_SHA256.json
+
+# Configurações locais; config.example.json continua versionável
+/config.json
+/config.local.json
+/config.*.local.json
+.env
+.env.*
+!.env.example
+
+# Índices regeneráveis, manifests e relatórios de execução
+/dados/base_*.csv
+/dados/indice-manifesto.json
+/dados/indice.lock
+/dados/indices/
+/dados/referencia/
+/dados/relatorios/
+/dados/manifesto-corrompido-*
+/resultados/
+/testes/resultados*
+
+# Novos materiais locais: verificar autorização antes de distribuir
+# Esta regra não remove o manual ou outros arquivos previamente rastreados.
+/dados/*.pdf
+/dados/*.txt
+/dados/*.md
+/dados/*.markdown

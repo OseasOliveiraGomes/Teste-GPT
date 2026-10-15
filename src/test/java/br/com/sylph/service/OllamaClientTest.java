@@ -11,6 +11,46 @@ import java.util.concurrent.atomic.AtomicReference;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OllamaClientTest {
+    @Test void sharedAuditPayloadPreservesEveryUnitAndItsFullEvidenceWithoutRepeatingPages() throws Exception {
+        var mapper = new ObjectMapper();
+        String longPage = "O aluno não pode enviar sem aprovação expressa do orientador. ".repeat(100);
+        var first = new RagService.Source("Manual", 7, longPage, java.util.List.of("chunk-7"), "doc-1");
+        var second = new RagService.Source("Manual", 8,
+            "O coordenador deve assinar somente após a conferência; o aluno é o destinatário.", java.util.List.of("chunk-8"), "doc-1");
+        var distinctFragment = new RagService.Source("Manual", 7,
+            "A dispensa não altera a obrigação de aprovação.", java.util.List.of("chunk-7b"), "doc-1");
+        var units = java.util.List.of(
+            new AnswerEvidence.Unit(1, "Unidade original 1.", java.util.List.of(first)),
+            new AnswerEvidence.Unit(2, "Unidade original 2.", java.util.List.of(first, second)),
+            new AnswerEvidence.Unit(3, "Unidade original 3.", java.util.List.of(distinctFragment, first)),
+            new AnswerEvidence.Unit(4, "Unidade original 4.", java.util.List.of(first)));
+        var parsed = new AnswerEvidence.Parsed(units, java.util.List.of());
+        var payload = mapper.valueToTree(OllamaClient.buildAuditPayload("pergunta", parsed));
+        assertEquals("pergunta", payload.path("question").asText());
+        assertEquals(3, payload.path("evidence").size(), "Trechos diferentes da mesma página devem continuar disponíveis");
+        var sourcesById = new java.util.HashMap<Integer, com.fasterxml.jackson.databind.JsonNode>();
+        for (var entry : payload.path("evidence")) sourcesById.put(entry.path("id").asInt(), entry.path("source"));
+        for (int i = 0; i < units.size(); i++) {
+            var original = units.get(i); var sent = payload.path("units").get(i);
+            assertEquals(original.id(), sent.path("id").asInt());
+            assertEquals(original.text(), sent.path("text").asText());
+            var reconstructed = new java.util.ArrayList<com.fasterxml.jackson.databind.JsonNode>();
+            for (var reference : sent.path("evidence")) reconstructed.add(sourcesById.get(reference.asInt()));
+            var expected = original.evidence().stream().map(mapper::valueToTree).toList();
+            assertEquals(expected, reconstructed,
+                "Cada unidade precisa conservar exatamente suas fontes, inclusive texto, condições e proveniência");
+        }
+        String compact = mapper.writeValueAsString(payload);
+        String repeated = mapper.writeValueAsString(java.util.Map.of("question", "pergunta", "units", units));
+        assertTrue(compact.length() < repeated.length() / 2, "Páginas repetidas devem ser transmitidas uma vez");
+        var otherProvenance = new RagService.Source(first.documento(), first.pagina(), first.trecho(),
+            java.util.List.of("outro-chunk"), "outro-documento");
+        var separate = mapper.valueToTree(OllamaClient.buildAuditPayload("pergunta", new AnswerEvidence.Parsed(
+            java.util.List.of(new AnswerEvidence.Unit(1, "Mesma página, proveniências diferentes.",
+                java.util.List.of(first, otherProvenance))), java.util.List.of())));
+        assertEquals(2, separate.path("evidence").size(), "Metadados de proveniência distintos não devem ser descartados");
+    }
+
     @Test void semanticAuditFailsClosedAndChecksCoverageWithThinkFalse() throws Exception {
         var mapper = new ObjectMapper();
         var verdict = new AtomicReference<String>();
@@ -72,6 +112,24 @@ class OllamaClientTest {
             var payload = mapper.readTree(request.get());
             assertTrue(payload.path("think").isBoolean());
             assertFalse(payload.path("think").asBoolean(true));
+            var schema = payload.path("format");
+            assertEquals("object", schema.path("type").asText());
+            assertFalse(schema.path("additionalProperties").asBoolean(true));
+            assertEquals(mapper.readTree("[\"ids\",\"missing\"]"), schema.path("required"));
+            assertEquals(2, schema.path("properties").size());
+            var ids = schema.path("properties").path("ids");
+            assertEquals("array", ids.path("type").asText()); assertTrue(ids.path("uniqueItems").asBoolean());
+            assertEquals(2, ids.path("maxItems").asInt());
+            assertEquals("integer", ids.path("items").path("type").asText());
+            assertEquals(1, ids.path("items").path("minimum").asInt());
+            assertEquals(2, ids.path("items").path("maximum").asInt());
+            assertEquals("string", schema.path("properties").path("missing").path("items").path("type").asText());
+            // Even if a server ignores the schema, it cannot supply the rendered factual text.
+            body.set("{\"ids\":[2,999],\"missing\":[],\"text\":\"Responsabilidade inventada pelo modelo.\"}");
+            assertEquals("Assinatura correta. [Fonte: Manual | Página: 9]",
+                client.repairAnswer(cfg,"question",sources,"previous",audit));
+            body.set("{\"ids\":[{\"id\":1,\"text\":\"Texto inventado.\"}],\"missing\":[]}");
+            assertFalse(client.repairAnswer(cfg,"question",sources,"previous",audit).contains("Texto inventado"));
             body.set("{\"items\":[],\"missing\":[\"Sem informacao\"]}");
             assertEquals(RagService.UNKNOWN,client.repairAnswer(cfg,"question",sources,"previous",audit));
         } finally { server.stop(0); }

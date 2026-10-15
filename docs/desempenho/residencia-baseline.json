@@ -1,0 +1,49 @@
+﻿{
+    "phase":  "baseline-prazo",
+    "observedAt":  "2026-10-14T23:58:18.5746797-03:00",
+    "gpu":  "NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB, 4552 MiB, 14 %, 52",
+    "ps":  {
+               "models":  [
+                              {
+                                  "name":  "sylph-unopar:latest",
+                                  "model":  "sylph-unopar:latest",
+                                  "size":  6599978515,
+                                  "digest":  "888142521135fa2a3b7a1a26246bf0138fdf3449884ae46a32c3ec3bdd3a4091",
+                                  "details":  {
+                                                  "parent_model":  "",
+                                                  "format":  "gguf",
+                                                  "family":  "qwen3",
+                                                  "families":  [
+                                                                   "qwen3"
+                                                               ],
+                                                  "parameter_size":  "8.2B",
+                                                  "quantization_level":  "Q4_K_M"
+                                              },
+                                  "expires_at":  "2026-10-15T00:03:20.6875922-03:00",
+                                  "size_vram":  4190623498,
+                                  "context_length":  8192,
+                                  "runner":  "llamacpp"
+                              },
+                              {
+                                  "name":  "nomic-embed-text:latest",
+                                  "model":  "nomic-embed-text:latest",
+                                  "size":  335743549,
+                                  "digest":  "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+                                  "details":  {
+                                                  "parent_model":  "",
+                                                  "format":  "gguf",
+                                                  "family":  "nomic-bert",
+                                                  "families":  [
+                                                                   "nomic-bert"
+                                                               ],
+                                                  "parameter_size":  "137M",
+                                                  "quantization_level":  "F16"
+                                              },
+                                  "expires_at":  "2026-10-15T00:03:04.5675102-03:00",
+                                  "size_vram":  335743549,
+                                  "context_length":  2048,
+                                  "runner":  "llamacpp"
+                              }
+                          ]
+           }
+}

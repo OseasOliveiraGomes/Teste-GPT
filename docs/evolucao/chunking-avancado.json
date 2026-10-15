@@ -1,0 +1,44 @@
+{
+  "recursive" : {
+    "chunks" : 41,
+    "minimum" : 507,
+    "maximum" : 1344,
+    "average" : 1085.878048780488,
+    "distribution" : {
+      "1-279" : 0,
+      "280-699" : 2,
+      "700-1349" : 39,
+      "1350+" : 0
+    },
+    "pages" : 57,
+    "sections" : 83,
+    "originalCoveragePercent" : 100.0,
+    "rawCoveragePercent" : 100.0,
+    "repeatedSourcePercent" : 17.51042018700011,
+    "potentialDuplicates" : [ "Caracteres de origem repetidos (inclui overlap intencional): 7772" ],
+    "processingMillis" : 705
+  },
+  "semantic" : {
+    "chunks" : 85,
+    "minimum" : 280,
+    "maximum" : 1301,
+    "average" : 430.98823529411766,
+    "distribution" : {
+      "1-279" : 0,
+      "280-699" : 76,
+      "700-1349" : 9,
+      "1350+" : 0
+    },
+    "pages" : 57,
+    "sections" : 83,
+    "originalCoveragePercent" : 100.0,
+    "rawCoveragePercent" : 99.78422964520799,
+    "repeatedSourcePercent" : 0.0,
+    "potentialDuplicates" : [ ],
+    "processingMillis" : 58558
+  },
+  "identicalSegmentsPercent" : 0.0,
+  "textualOverlapPercent" : 47.58430165244343,
+  "overlapDefinition" : "Média simétrica do melhor Jaccard de conjuntos de palavras por segmento (0–100); diferente da cobertura da fonte e da repetição por overlap.",
+  "explanation" : "Diferenças refletem limites estruturais e transições entre embeddings de unidades adjacentes; a divisão por página não é obrigatória. A inspeção humana dos limites continua necessária."
+}

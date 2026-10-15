@@ -1,0 +1,28 @@
+{
+    "data":  "2026-10-14",
+    "commit_original":  "22b1933",
+    "testes_originais":  212,
+    "falhas":  0,
+    "chunks_recursivos":  56,
+    "chunks_semanticos":  57,
+    "paginas_com_texto":  56,
+    "iguais_por_pagina":  55,
+    "arquivos":  [
+                     {
+                         "Path":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\dados\\base_recursivo.csv",
+                         "Hash":  "F77B05F4DC7739AA8541EE017EA2992D561024E6FC003EEFC6807F3CFB19E760"
+                     },
+                     {
+                         "Path":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\dados\\base_semantico.csv",
+                         "Hash":  "5B33A8110E6EA15C7B72A6A3FBD1DD0A1E31A59183368804ED75F335AEB2AFE0"
+                     },
+                     {
+                         "Path":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\dados\\Manual Estagio Obrigatorio UNOPAR 2026-2.pdf",
+                         "Hash":  "D1BBCB7C15AA9954EE05D338FDDB521F049804938FEBDD51D58D08CB16742042"
+                     },
+                     {
+                         "Path":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\config.json",
+                         "Hash":  "D5225D414E6536D8B5DBF8FD7D0E393BA2B325BBAE5FEC68810D23E641A82E8A"
+                     }
+                 ]
+}

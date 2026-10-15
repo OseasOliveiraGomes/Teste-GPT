@@ -1,0 +1,30 @@
+﻿[
+    {
+        "path":  "src/main/java/br/com/sylph/service/OllamaClient.java",
+        "sha256":  "744F5DC6D1A41B7F583BE3E87B36F0122968581BB15D8340F866CF82B7679941"
+    },
+    {
+        "path":  "src/main/java/br/com/sylph/service/RagService.java",
+        "sha256":  "F98E9DB4ECF2DD76429A529C3BC54A04C53F927805AF621AAD10B7A220C25452"
+    },
+    {
+        "path":  "src/main/java/br/com/sylph/service/HybridRetriever.java",
+        "sha256":  "18B1125CF9EE8F91A160C4929B8420450C8649682A9C47F06ACB3BCA5C48CF04"
+    },
+    {
+        "path":  "src/main/java/br/com/sylph/service/CsvKnowledgeStore.java",
+        "sha256":  "33FF4E19032BE0B1F1E004D7BF4BFE46BCC7D8D27B86751EF68F24C94B7B60FB"
+    },
+    {
+        "path":  "src/main/java/br/com/sylph/config/ProjectConfig.java",
+        "sha256":  "A54BA45B649174A735EA7F866BE563468598AE1E08316959D1B8CFDB452DA82F"
+    },
+    {
+        "path":  "config.json",
+        "sha256":  "20F62851CAD6285D3AA6A4A5288C55D507ECFB3CB4837F761CC12812695BE5F7"
+    },
+    {
+        "path":  "src/test/java/br/com/sylph/service/SylphPerformanceTest.java",
+        "sha256":  "53A2C53BFD993C6618C1A076FC5C5107A8F4EF5ACBF2CAC69E995FCE6669A4A5"
+    }
+]

@@ -95,7 +95,7 @@ public class FormattedAttributionIntegrationTest {
         }
         JsonNode historical = fixture.path("historical_origin");
         CsvKnowledgeStore csv = new CsvKnowledgeStore(MAPPER);
-        List<KnowledgeChunk> chunks = csv.read("recursivo").stream()
+        List<KnowledgeChunk> chunks = csv.readBaseline("recursivo").stream()
             .filter(chunk -> chunk.pagina() == historical.path("source").path("pagina").asInt()
                 && chunk.documento().equals(historical.path("source").path("documento").asText())).toList();
         assertFalse(chunks.isEmpty(), "O replay deve ler a página real no CSV existente");

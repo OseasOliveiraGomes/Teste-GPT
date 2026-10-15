@@ -155,7 +155,7 @@ class FinalPresentationIntegrationTest {
     }
 
     private static KnowledgeChunk realPage(int number) throws IOException {
-        return new CsvKnowledgeStore(new ObjectMapper()).read("recursivo").stream()
+        return new CsvKnowledgeStore(new ObjectMapper()).readBaseline("recursivo").stream()
             .filter(chunk -> chunk.pagina() == number).findFirst().orElseThrow();
     }
 

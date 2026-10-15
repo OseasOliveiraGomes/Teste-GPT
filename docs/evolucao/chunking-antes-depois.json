@@ -1,0 +1,95 @@
+{
+    "antes":  {
+                  "recursivo":  {
+                                    "chunks":  56,
+                                    "minimo":  65,
+                                    "maximo":  1233,
+                                    "media":  653.33928571428567,
+                                    "paginas":  56
+                                },
+                  "semantico":  {
+                                    "chunks":  57,
+                                    "minimo":  65,
+                                    "maximo":  1158,
+                                    "media":  641.859649122807,
+                                    "paginas":  56
+                                },
+                  "segmentos_compartilhados":  55,
+                  "percentual_segmentos_identicos":  97.345132743362825
+              },
+    "depois":  {
+                   "recursive":  {
+                                     "chunks":  41,
+                                     "minimum":  507,
+                                     "maximum":  1344,
+                                     "average":  1085.878048780488,
+                                     "distribution":  {
+                                                          "1-279":  0,
+                                                          "280-699":  2,
+                                                          "700-1349":  39,
+                                                          "1350+":  0
+                                                      },
+                                     "pages":  57,
+                                     "sections":  83,
+                                     "originalCoveragePercent":  100.0,
+                                     "rawCoveragePercent":  100.0,
+                                     "repeatedSourcePercent":  17.51042018700011,
+                                     "potentialDuplicates":  [
+                                                                 "Caracteres de origem repetidos (inclui overlap intencional): 7772"
+                                                             ],
+                                     "processingMillis":  705
+                                 },
+                   "semantic":  {
+                                    "chunks":  85,
+                                    "minimum":  280,
+                                    "maximum":  1301,
+                                    "average":  430.98823529411766,
+                                    "distribution":  {
+                                                         "1-279":  0,
+                                                         "280-699":  76,
+                                                         "700-1349":  9,
+                                                         "1350+":  0
+                                                     },
+                                    "pages":  57,
+                                    "sections":  83,
+                                    "originalCoveragePercent":  100.0,
+                                    "rawCoveragePercent":  99.78422964520799,
+                                    "repeatedSourcePercent":  0.0,
+                                    "potentialDuplicates":  [
+
+                                                            ],
+                                    "processingMillis":  58558
+                                },
+                   "identicalSegmentsPercent":  0.0,
+                   "textualOverlapPercent":  47.58430165244343,
+                   "overlapDefinition":  "Média simétrica do melhor Jaccard de conjuntos de palavras por segmento (0–100); diferente da cobertura da fonte e da repetição por overlap.",
+                   "explanation":  "Diferenças refletem limites estruturais e transições entre embeddings de unidades adjacentes; a divisão por página não é obrigatória. A inspeção humana dos limites continua necessária."
+               },
+    "preservacao":  [
+                        {
+                            "arquivo":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\dados\\base_recursivo.csv",
+                            "hash_antes":  "F77B05F4DC7739AA8541EE017EA2992D561024E6FC003EEFC6807F3CFB19E760",
+                            "hash_depois":  "F77B05F4DC7739AA8541EE017EA2992D561024E6FC003EEFC6807F3CFB19E760",
+                            "preservado":  true
+                        },
+                        {
+                            "arquivo":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\dados\\base_semantico.csv",
+                            "hash_antes":  "5B33A8110E6EA15C7B72A6A3FBD1DD0A1E31A59183368804ED75F335AEB2AFE0",
+                            "hash_depois":  "5B33A8110E6EA15C7B72A6A3FBD1DD0A1E31A59183368804ED75F335AEB2AFE0",
+                            "preservado":  true
+                        },
+                        {
+                            "arquivo":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\dados\\Manual Estagio Obrigatorio UNOPAR 2026-2.pdf",
+                            "hash_antes":  "D1BBCB7C15AA9954EE05D338FDDB521F049804938FEBDD51D58D08CB16742042",
+                            "hash_depois":  "D1BBCB7C15AA9954EE05D338FDDB521F049804938FEBDD51D58D08CB16742042",
+                            "preservado":  true
+                        },
+                        {
+                            "arquivo":  "C:\\Users\\cs081\\OneDrive\\Desktop\\Tutor IA\\config.json",
+                            "hash_antes":  "D5225D414E6536D8B5DBF8FD7D0E393BA2B325BBAE5FEC68810D23E641A82E8A",
+                            "hash_depois":  "D5225D414E6536D8B5DBF8FD7D0E393BA2B325BBAE5FEC68810D23E641A82E8A",
+                            "preservado":  true
+                        }
+                    ],
+    "observacao":  "Antes: CSVs originais por página. Depois: segmentos entre páginas, com offsets exatos e 57 páginas físicas. Quantidades não medem correção factual."
+}
